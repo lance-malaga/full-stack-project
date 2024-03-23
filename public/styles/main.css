@@ -6,6 +6,18 @@ button {
     border: none;
     background-color: transparent;
 }
+* {
+    padding: 0;
+    margin: 0;
+}
+textarea, input, select {
+    border: none;
+    background-color: #F9F0E3;
+    padding: 15px 25px;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
 .star_icon path {
     transition: 0.5 fill ease-in-out;
 }
@@ -49,17 +61,29 @@ button {
 }
 .item__overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.3);
     top: 0;
     opacity: 0;
     transition: 0.3s all ease-in-out;
     cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
 }
 .item__overlay:hover {
     opacity: 1;
+}
+.item__overlay div {
+    display: flex;
+    color: white;
+    width: -webkit-fill-available;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .form_overlay {
@@ -78,10 +102,44 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
     border-radius: 10px;
 }
 .form {
     display: flex;
     background-color: #FFF9F1;
+    border-radius: 24px;
+}
+.form #item__img {
+    border-radius: 24px 0 0 24px;
+    object-fit: cover;
+}
+.form__content {
+    padding: 25px 25px 40px;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+}
+.form .close_btn {
+    margin-left: auto;
+}
+.form h4 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+.form textarea {
+    margin: 50px 0 15px;
+}
+.form .select_area {
+    display: flex;
+    gap: 15px;
+}
+.form .select_area select {
+    width: 100%;
+}
+.form .submit_btn {
+    background-color: #FD8121;
+    color: white;
+    font-size: 32;
+    border-radius: 24px;
+    padding: 13px 15px;
 }
