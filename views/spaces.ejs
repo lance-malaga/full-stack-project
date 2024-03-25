@@ -1,0 +1,160 @@
+<%- include('partials/header.ejs'); -%>
+
+<nav>
+    <main class="navigation">
+        <h1 class="title">Spaces</h1>
+        <div class="nav">
+            <a class="nav_button" href="/">
+                HOME
+            </a>
+            <a class="nav_button" href="/spaces">
+                SPACES
+            </a>
+        </div>
+    </main>
+</nav>
+<body>
+
+    <div class="spaces">
+
+        <div class="spaces_gallery">
+            <div class="category_section">
+                <div class="item_grid">
+                    <% savedList.filter(item => item.category === 'living').map((item, index) => { %>
+                        <div class="items_container">
+                           <img class="living_images" src="<%= item.image %>" alt="<%= item.name %>"/>
+                            <div class="item_grid_overlay">
+                               <div class="actions">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                            <path d="M32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16Z" fill="#FBF2E6"/>
+                                            <path d="M10.4999 11.5V22.5C10.4953 22.6924 10.5286 22.8838 10.5979 23.0634C10.6673 23.2429 10.7714 23.407 10.9042 23.5463C11.037 23.6856 11.1959 23.7973 11.3719 23.8752C11.5479 23.9531 11.7375 23.9955 11.9299 24H21.0449C21.2395 23.9987 21.4318 23.9587 21.6107 23.8823C21.7896 23.8059 21.9515 23.6947 22.0869 23.555C22.2224 23.4154 22.3286 23.2502 22.3996 23.0691C22.4705 22.8879 22.5046 22.6945 22.4999 22.5V11.5H10.4999ZM14.9999 21.5H13.9999V14H14.9999V21.5ZM18.9999 21.5H17.9999V14H18.9999V21.5Z" fill="#333333"/>
+                                            <path d="M22.865 9.5H19V9C19 8.73478 18.8946 8.48043 18.7071 8.29289C18.5196 8.10536 18.2652 8 18 8H14.9C14.6525 8.02487 14.4231 8.14111 14.2567 8.32602C14.0903 8.51093 13.9988 8.75123 14 9V9.5H10C9.86739 9.5 9.74021 9.55268 9.64645 9.64645C9.55268 9.74021 9.5 9.86739 9.5 10C9.5 10.1326 9.55268 10.2598 9.64645 10.3536C9.74021 10.4473 9.86739 10.5 10 10.5H22.865C22.9976 10.5 23.1248 10.4473 23.2186 10.3536C23.3123 10.2598 23.365 10.1326 23.365 10C23.365 9.86739 23.3123 9.74021 23.2186 9.64645C23.1248 9.55268 22.9976 9.5 22.865 9.5Z" fill="#333333"/>
+                                        </svg>
+                                    </button>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                            <path d="M32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16Z" fill="#FBF2E6"/>
+                                            <path d="M9.61 18.6L8.66 22.7C8.62723 22.8499 8.62836 23.0052 8.66329 23.1546C8.69823 23.304 8.7661 23.4437 8.86194 23.5635C8.95778 23.6833 9.07917 23.7801 9.21724 23.847C9.35532 23.9139 9.50659 23.9491 9.66 23.95C9.73149 23.9572 9.80352 23.9572 9.875 23.95L14 23L21.92 15.11L17.5 10.7L9.61 18.6Z" fill="#FD8121"/>
+                                            <path d="M24.41 11.16L21.46 8.21C21.2661 8.01703 21.0036 7.90871 20.73 7.90871C20.4564 7.90871 20.194 8.01703 20 8.21L18.36 9.85L22.775 14.265L24.415 12.625C24.511 12.5285 24.587 12.4141 24.6387 12.2882C24.6904 12.1624 24.7168 12.0275 24.7163 11.8915C24.7158 11.7554 24.6885 11.6207 24.636 11.4952C24.5834 11.3697 24.5066 11.2558 24.41 11.16Z" fill="#FD8121"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p class="item_name"><%= item.name %></p>
+                           </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="category">
+                <h2 class="space_title">LivingSpace</h2>
+                <h2 class="space_description">#dream home</h2>
+            </div>
+        </div>
+    
+        <div class="spaces_gallery">
+            <div class="category_section">
+                <div class="item_grid">
+                    <% savedList.filter(item => item.category === 'bedroom').map((item, index) => { %>
+                        <div class="items_container">
+                           <img class="living_images" src="<%= item.image %>" alt="<%= item.name %>"/>
+                           <div class="item_grid_overlay">
+                               <div class="actions">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                            <path d="M32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16Z" fill="#FBF2E6"/>
+                                            <path d="M10.4999 11.5V22.5C10.4953 22.6924 10.5286 22.8838 10.5979 23.0634C10.6673 23.2429 10.7714 23.407 10.9042 23.5463C11.037 23.6856 11.1959 23.7973 11.3719 23.8752C11.5479 23.9531 11.7375 23.9955 11.9299 24H21.0449C21.2395 23.9987 21.4318 23.9587 21.6107 23.8823C21.7896 23.8059 21.9515 23.6947 22.0869 23.555C22.2224 23.4154 22.3286 23.2502 22.3996 23.0691C22.4705 22.8879 22.5046 22.6945 22.4999 22.5V11.5H10.4999ZM14.9999 21.5H13.9999V14H14.9999V21.5ZM18.9999 21.5H17.9999V14H18.9999V21.5Z" fill="#333333"/>
+                                            <path d="M22.865 9.5H19V9C19 8.73478 18.8946 8.48043 18.7071 8.29289C18.5196 8.10536 18.2652 8 18 8H14.9C14.6525 8.02487 14.4231 8.14111 14.2567 8.32602C14.0903 8.51093 13.9988 8.75123 14 9V9.5H10C9.86739 9.5 9.74021 9.55268 9.64645 9.64645C9.55268 9.74021 9.5 9.86739 9.5 10C9.5 10.1326 9.55268 10.2598 9.64645 10.3536C9.74021 10.4473 9.86739 10.5 10 10.5H22.865C22.9976 10.5 23.1248 10.4473 23.2186 10.3536C23.3123 10.2598 23.365 10.1326 23.365 10C23.365 9.86739 23.3123 9.74021 23.2186 9.64645C23.1248 9.55268 22.9976 9.5 22.865 9.5Z" fill="#333333"/>
+                                        </svg>
+                                    </button>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                            <path d="M32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16Z" fill="#FBF2E6"/>
+                                            <path d="M9.61 18.6L8.66 22.7C8.62723 22.8499 8.62836 23.0052 8.66329 23.1546C8.69823 23.304 8.7661 23.4437 8.86194 23.5635C8.95778 23.6833 9.07917 23.7801 9.21724 23.847C9.35532 23.9139 9.50659 23.9491 9.66 23.95C9.73149 23.9572 9.80352 23.9572 9.875 23.95L14 23L21.92 15.11L17.5 10.7L9.61 18.6Z" fill="#FD8121"/>
+                                            <path d="M24.41 11.16L21.46 8.21C21.2661 8.01703 21.0036 7.90871 20.73 7.90871C20.4564 7.90871 20.194 8.01703 20 8.21L18.36 9.85L22.775 14.265L24.415 12.625C24.511 12.5285 24.587 12.4141 24.6387 12.2882C24.6904 12.1624 24.7168 12.0275 24.7163 11.8915C24.7158 11.7554 24.6885 11.6207 24.636 11.4952C24.5834 11.3697 24.5066 11.2558 24.41 11.16Z" fill="#FD8121"/>
+                                        </svg>
+                                    </button>
+                               </div>
+                               <p class="item_name"><%= item.name %></p>
+                           </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="category">
+                <h2 class="space_title">BedSpace</h2>
+                <h2 class="space_description">#dream home</h2>
+            </div>
+        </div>
+        
+        <div class="spaces_gallery">
+            <div class="category_section2">
+                <div class="item_grid2">
+                    <% savedList.filter(item => item.category === 'kitchen').map((item, index) => { %>
+                        <div class="items_container">
+                           <img class="living_images" src="<%= item.image %>" alt="<%= item.name %>"/>
+                           <div class="item_grid_overlay">
+                                <div class="actions">
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                            <path d="M32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16Z" fill="#FBF2E6"/>
+                                            <path d="M10.4999 11.5V22.5C10.4953 22.6924 10.5286 22.8838 10.5979 23.0634C10.6673 23.2429 10.7714 23.407 10.9042 23.5463C11.037 23.6856 11.1959 23.7973 11.3719 23.8752C11.5479 23.9531 11.7375 23.9955 11.9299 24H21.0449C21.2395 23.9987 21.4318 23.9587 21.6107 23.8823C21.7896 23.8059 21.9515 23.6947 22.0869 23.555C22.2224 23.4154 22.3286 23.2502 22.3996 23.0691C22.4705 22.8879 22.5046 22.6945 22.4999 22.5V11.5H10.4999ZM14.9999 21.5H13.9999V14H14.9999V21.5ZM18.9999 21.5H17.9999V14H18.9999V21.5Z" fill="#333333"/>
+                                            <path d="M22.865 9.5H19V9C19 8.73478 18.8946 8.48043 18.7071 8.29289C18.5196 8.10536 18.2652 8 18 8H14.9C14.6525 8.02487 14.4231 8.14111 14.2567 8.32602C14.0903 8.51093 13.9988 8.75123 14 9V9.5H10C9.86739 9.5 9.74021 9.55268 9.64645 9.64645C9.55268 9.74021 9.5 9.86739 9.5 10C9.5 10.1326 9.55268 10.2598 9.64645 10.3536C9.74021 10.4473 9.86739 10.5 10 10.5H22.865C22.9976 10.5 23.1248 10.4473 23.2186 10.3536C23.3123 10.2598 23.365 10.1326 23.365 10C23.365 9.86739 23.3123 9.74021 23.2186 9.64645C23.1248 9.55268 22.9976 9.5 22.865 9.5Z" fill="#333333"/>
+                                        </svg>
+                                    </button>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                            <path d="M32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16Z" fill="#FBF2E6"/>
+                                            <path d="M9.61 18.6L8.66 22.7C8.62723 22.8499 8.62836 23.0052 8.66329 23.1546C8.69823 23.304 8.7661 23.4437 8.86194 23.5635C8.95778 23.6833 9.07917 23.7801 9.21724 23.847C9.35532 23.9139 9.50659 23.9491 9.66 23.95C9.73149 23.9572 9.80352 23.9572 9.875 23.95L14 23L21.92 15.11L17.5 10.7L9.61 18.6Z" fill="#FD8121"/>
+                                            <path d="M24.41 11.16L21.46 8.21C21.2661 8.01703 21.0036 7.90871 20.73 7.90871C20.4564 7.90871 20.194 8.01703 20 8.21L18.36 9.85L22.775 14.265L24.415 12.625C24.511 12.5285 24.587 12.4141 24.6387 12.2882C24.6904 12.1624 24.7168 12.0275 24.7163 11.8915C24.7158 11.7554 24.6885 11.6207 24.636 11.4952C24.5834 11.3697 24.5066 11.2558 24.41 11.16Z" fill="#FD8121"/>
+                                        </svg>
+                                    </button>
+                               </div>
+                               <p class="item_name"><%= item.name %></p>
+                           </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="category">
+                <h2 class="space_title">KitchenSpace</h2>
+                <h2 class="space_description">#dream home</h2>
+            </div>
+        </div>
+    
+        
+
+    </div>
+    <%- include('partials/footer.ejs'); -%>
+</body>
+
+
+<script>
+    const savedList = <%- JSON.stringify(savedList) %>;
+
+    // Show Furniture Data
+    function showItem(index) {
+        const item = savedList[index];
+        
+        const form = document.getElementById('item__form');
+        form.querySelector('#item__img').src = item.image;
+        form.querySelector('#item__img').alt = item.name;
+        form.querySelector('#item__name').textContent = item.name;
+        form.querySelector('#item__description').textContent = item.description;
+
+        form.querySelector('#input__img').value = item.image;
+        form.querySelector('#input__name').value = item.name;
+        form.querySelector('#input__description').value = item.description;
+
+        form.querySelector('#item__notes').value = ''; // clears previous notes
+        form.querySelector('#item__category').value = 'living'; // default category
+    }
+    // Pop Up Form
+
+    function toggleForm() {
+        console.log("toggle")
+        const formContainer = document.querySelector(`.form_overlay`);
+        formContainer.style.display = formContainer.style.display === 'none' ? 'flex' : 'none';
+    }
+
+</script>

@@ -10,7 +10,7 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "furniture",
-    password: "110169",
+    password: "daniellakiray",
     port: 5432,
 });
 db.connect();
@@ -27,16 +27,20 @@ app.get("/", async (req, res) => {
     });
 });
 
-app.get("/", async (req, res) => {
+app.get("/spaces", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM items ORDER BY id ASC");
         items = result.rows;
-        res.render("index.ejs", {
+        res.render("spaces.ejs", {
             savedList: items,
         });
     } catch (err) {
         console.log(err);
     }
+});
+
+app.get('/spaces', function(req, res) {
+    res.render("spaces.ejs");
 });
 
 app.post("/add", async (req, res) => {
@@ -53,6 +57,7 @@ app.post("/add", async (req, res) => {
         res.status(500).send("Error adding item to the database");
     }
 });
+
 
 // app.post("/edit", async (req, res) => {
 //   const item = req.body.updatedItemTitle;
