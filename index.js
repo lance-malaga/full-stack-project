@@ -10,7 +10,7 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "furniture",
-    password: "daniellakiray",
+    password: "032526",
     port: 5432,
 });
 db.connect();
@@ -59,27 +59,32 @@ app.post("/add", async (req, res) => {
 });
 
 
-// app.post("/edit", async (req, res) => {
-//   const item = req.body.updatedItemTitle;
-//   const id = req.body.updatedItemId;
+app.post("/edit", async (req, res) => {
+    const { id, updatedNote } = req.body;
 
-//   try {
-//     await db.query("UPDATE items SET title = ($1) WHERE id = $2", [item, id]);
-//     res.redirect("/");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+    try {
+        const query = "UPDATE items SET notes = $1 WHERE id = $2";
+        await db.query(query, [updatedNote, id]);
+        res.redirect("/");
+    } catch (err) {
+        console.error("Error editing notes:", err);
+        res.status(500).send("Error editing notes to the database");
+    }
+});
 
-// app.post("/delete", async (req, res) => {
-//   const id = req.body.deleteItemId;
-//   try {
-//     await db.query("DELETE FROM items WHERE id = $1", [id]);
-//     res.redirect("/");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+
+app.post("/delete", async (req, res) => {
+    const { id, deleteItemId } = req.body;
+    
+    try {
+        await db.query("DELETE FROM items WHERE id = $1", [id, deleteItemId]);
+        res.redirect("/");
+    } catch (err) {
+        console.error("Error deleting item:", err);
+        res.status(500).send("Error deleting notes to the database");
+    }
+});
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

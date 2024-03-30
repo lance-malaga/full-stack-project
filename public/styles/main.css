@@ -379,3 +379,7 @@ textarea, input, select {
     font-size: 14px;
     color: rgba(51, 51, 51, 0.35);
 }
+
+.close_btn_spaces {
+    margin-right: auto;
+}
