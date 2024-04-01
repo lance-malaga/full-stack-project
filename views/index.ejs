@@ -28,7 +28,13 @@
 					<input type="text" name="description" id="input__description" value="" hidden>
 					<input type="text" name="image" id="input__img" value="" hidden>
 					<!-- end of hidden inputs -->
-					<textarea name="notes" id="item__notes" placeholder="Add some notes here..."></textarea>
+					<form class="edit" action="/edit" method="post">
+						<div id="saveMode">
+							<textarea name="updatedNote" id="updated__notes" value="" autocomplete="off" autofocus="true" placeholder="Add some notes here..."></textarea>
+							<button type="button" class="submit_btn" onclick="handler()">Save</button>
+						</div>
+					</form>	
+					<!-- <textarea name="notes" id="item__notes" placeholder="Add some notes here..."></textarea> -->
 					<div class="select_area">
 						<select id="item__category" name="category" required>
 							<option value="living" selected>Living Space</option>
@@ -68,6 +74,13 @@
 			console.log("toggle")
 			const formContainer = document.querySelector(`.form_overlay`);
 			formContainer.style.display = formContainer.style.display === 'none' ? 'flex' : 'none';
+		}
+
+		// Edit and save notes
+		function handler() {
+			const updatedNote = document.getElementById('updated__notes').value;
+			document.getElementById('item__notes').value = updatedNote;
+			toggleEditMode();
 		}
 
 	</script>

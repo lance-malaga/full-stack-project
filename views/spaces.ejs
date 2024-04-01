@@ -19,7 +19,7 @@
 
         <div class="spaces_gallery">
             <div class="category_section">
-                <div class="item_grid">
+                <div class="item_grid" action="/delete" name="deleteItemId" value="">
                     <% savedList.filter(item => item.category === 'living').map((item, index) => { %>
                         <div class="items_container">
                            <img class="living_images" src="<%= item.image %>" alt="<%= item.name %>"/>
