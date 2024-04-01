@@ -1,5 +1,6 @@
 <%- include('partials/header.ejs'); -%>
 <%- include('partials/navbar.ejs'); -%>
+
 	<div class="gallery">
 		<% furnitureList.map((item, index) => { %>
 			<div class="item item<%=index + 1%>">
@@ -7,11 +8,6 @@
 				<div class="item__overlay" onclick="toggleForm(); showItem(<%= index %>);">
 					<div>
 						<p><%= item.name %></p>
-						<button onclick="toggleForm(); showItem(<%= index %>);">
-							<svg class="star_icon" width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M15.0728 2.69488C16.6274 0.111601 20.3726 0.111607 21.9272 2.69489L25.0323 7.85443C25.5908 8.78248 26.5018 9.44435 27.557 9.68874L33.4235 11.0474C36.3608 11.7277 37.5181 15.2896 35.5417 17.5664L31.5942 22.1139C30.8842 22.9319 30.5362 24.0028 30.6298 25.0819L31.1505 31.0812C31.4112 34.0849 28.3813 36.2862 25.6051 35.1101L20.0604 32.761C19.063 32.3385 17.937 32.3385 16.9396 32.761L11.3949 35.1101C8.61874 36.2862 5.58883 34.0849 5.84951 31.0811L6.37017 25.0819C6.46382 24.0028 6.11585 22.9319 5.40581 22.1139L1.45831 17.5664C-0.518126 15.2896 0.639205 11.7277 3.57646 11.0474L9.44299 9.68874C10.4982 9.44435 11.4092 8.78248 11.9677 7.85443L15.0728 2.69488Z" fill="white"/>
-							</svg>
-						</button>
 					</div>
 				</div>
 			</div>
@@ -24,7 +20,8 @@
 			<form class="form" id="item__form" action="/add" method="POST">
 				<img id="item__img" src="" alt=""/>
 				<div class="form__content">
-					<img src="/assets/icons/close.svg" alt="close-btn" class="close_btn"  onclick="toggleForm()" />					<h4 id="item__name"></h4>
+					<img src="/assets/icons/close.svg" alt="close-btn" class="close_btn"  onclick="toggleForm()" />
+					<h4 id="item__name"></h4>
 					<p id="item__description"></p>
 					<!-- hidden inputs -->
 					<input type="text" name="name" id="input__name" value="" hidden>

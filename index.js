@@ -58,33 +58,27 @@ app.post("/add", async (req, res) => {
     }
 });
 
-
 app.post("/edit", async (req, res) => {
-    const { id, updatedNote } = req.body;
+    const { updatedNotes, updatedCategory, updatedId } = req.body;
 
     try {
-        const query = "UPDATE items SET notes = $1 WHERE id = $2";
-        await db.query(query, [updatedNote, id]);
-        res.redirect("/");
+        const query = "UPDATE items SET notes = ($1), category = ($2) WHERE id = $3";
+        await db.query(query, [updatedNotes, updatedCategory, updatedId]);
+        res.redirect("/spaces");
     } catch (err) {
-        console.error("Error editing notes:", err);
-        res.status(500).send("Error editing notes to the database");
+        console.log(err);
     }
 });
-
 
 app.post("/delete", async (req, res) => {
-    const { id, deleteItemId } = req.body;
-    
     try {
-        await db.query("DELETE FROM items WHERE id = $1", [id, deleteItemId]);
-        res.redirect("/");
+        const {deleteItemId} = req.body;
+        await db.query("DELETE FROM items WHERE id = $1", [deleteItemId]);
+        res.redirect("/spaces");
     } catch (err) {
-        console.error("Error deleting item:", err);
-        res.status(500).send("Error deleting notes to the database");
+        console.log(err);
     }
 });
-
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
